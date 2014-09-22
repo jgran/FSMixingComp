@@ -6,6 +6,7 @@ mkdir newMixing
 mkdir oldMixing
 mkdir newMinBias
 mkdir oldMinBias
+mkdir babyNtuple
 
 export SCRAM_ARCH=slc6_amd64_gcc481
 
@@ -64,4 +65,22 @@ cd oldMinBias
 cmsrel CMSSW_7_0_0
 cd CMSSW_7_0_0/src
 cp $BASEDIR/config/MinBias_for_GEN_mixing.py .
+cd $BASEDIR
+
+cd babyNtuple
+cmsrel CMSSW_7_2_0_pre5
+cd CMSSW_7_2_0_pre5/src
+cp -r $BASEDIR/Study .
+scram b -j20
+cd Study/BabyMaker/python
+sed -i "s,FILELOCATION1,$BASEDIR/oldMixing/CMSSW_7_2_0_pre5/src/oldMixing1/oldMixing_NeutrinoGun_GEN_SIM_RECO_PU_1.root,g" oldMixing.py
+sed -i "s,FILELOCATION2,$BASEDIR/oldMixing/CMSSW_7_2_0_pre5/src/oldMixing2/oldMixing_NeutrinoGun_GEN_SIM_RECO_PU_2.root,g" oldMixing.py
+sed -i "s,FILELOCATION3,$BASEDIR/oldMixing/CMSSW_7_2_0_pre5/src/oldMixing3/oldMixing_NeutrinoGun_GEN_SIM_RECO_PU_3.root,g" oldMixing.py
+sed -i "s,FILELOCATION4,$BASEDIR/oldMixing/CMSSW_7_2_0_pre5/src/oldMixing4/oldMixing_NeutrinoGun_GEN_SIM_RECO_PU_4.root,g" oldMixing.py
+sed -i "s,FILELOCATION5,$BASEDIR/oldMixing/CMSSW_7_2_0_pre5/src/oldMixing5/oldMixing_NeutrinoGun_GEN_SIM_RECO_PU_5.root,g" oldMixing.py
+sed -i "s,FILELOCATION1,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing1/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_1.root,g" newMixing.py
+sed -i "s,FILELOCATION2,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing2/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_2.root,g" newMixing.py
+sed -i "s,FILELOCATION3,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing3/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_3.root,g" newMixing.py
+sed -i "s,FILELOCATION4,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing4/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_4.root,g" newMixing.py
+sed -i "s,FILELOCATION5,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing5/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_5.root,g" newMixing.py
 cd $BASEDIR
