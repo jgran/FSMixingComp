@@ -7,6 +7,8 @@ mkdir oldMixing
 mkdir newMinBias
 mkdir oldMinBias
 
+export SCRAM_ARCH=slc6_amd64_gcc481
+
 cd newMixing
 cmsrel CMSSW_7_2_0_pre5
 cd CMSSW_7_2_0_pre5/src
