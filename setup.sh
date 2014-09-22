@@ -84,3 +84,8 @@ sed -i "s,FILELOCATION3,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing3/newMi
 sed -i "s,FILELOCATION4,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing4/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_4.root,g" newMixing.py
 sed -i "s,FILELOCATION5,$BASEDIR/newMixing/CMSSW_7_2_0_pre5/src/newMixing5/newMixing_NeutrinoGun_GEN_SIM_RECO_PU_5.root,g" newMixing.py
 cd $BASEDIR
+
+cd analyze
+sed -i "s,NEWMIXINGFILES,$BASEDIR/babyNtuple/CMSSW_7_2_0_pre5/src/Study/BabyMaker/newMixing.root,g" doAll.C
+sed -i "s,OLDMIXINGFILES,$BASEDIR/babyNtuple/CMSSW_7_2_0_pre5/src/Study/BabyMaker/oldMixing.root,g" doAll.C
+cd $BASEDIR
